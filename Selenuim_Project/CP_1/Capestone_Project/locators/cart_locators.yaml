@@ -1,0 +1,49 @@
+# OpenCart 3.x cart page (route=checkout/cart)
+# Cart line items live in <form> > table; the price totals live in a separate
+# table inside div.col-sm-4.col-sm-offset-8.
+
+cart_dropdown_top:
+  - "css:#cart > button"
+  - "xpath://*[@id='cart']/button"
+
+view_cart_link:
+  - "link_text:View Cart"
+  - "xpath://a[contains(text(),'View Cart')]"
+  - "css:a[href*='route=checkout/cart']"
+
+# One <tr> per product line (NOT the totals table)
+cart_table_rows:
+  - "css:#content form table tbody tr"
+  - "xpath://div[@id='content']//form//table//tbody/tr"
+
+product_name_in_cart:
+  - "css:#content form table tbody tr td.text-left a"
+  - "xpath://div[@id='content']//form//table//tbody//td[2]/a"
+
+quantity_input:
+  - "css:#content form table input[name^='quantity']"
+  - "css:input[name*='quantity']"
+  - "xpath://input[contains(@name,'quantity')]"
+
+update_cart_button:
+  - "css:#content form table button[data-original-title='Update']"
+  - "css:#content form table button[title='Update']"
+  - "xpath://form//button[.//i[contains(@class,'fa-refresh')]]"
+
+remove_cart_item_button:
+  - "css:#content form table button[data-original-title='Remove']"
+  - "css:#content form table button[title='Remove']"
+  - "xpath://form//button[.//i[contains(@class,'fa-times-circle')]]"
+
+# Last cell of the totals table (the grand "Total:" row)
+cart_total_row:
+  - "css:#content div.col-sm-4.col-sm-offset-8 table tr:last-child td:last-child"
+  - "xpath://td[normalize-space(.)='Total:']/following-sibling::td"
+  - "xpath://strong[normalize-space(.)='Total:']/ancestor::td/following-sibling::td"
+
+empty_cart_message:
+  - "xpath://div[@id='content']//p[contains(text(),'Your shopping cart is empty')]"
+  - "css:#content p"
+
+update_success_alert:
+  - "css:div.alert.alert-success"

@@ -1,0 +1,34 @@
+# NOTE: on OpenCart, id="search" belongs to the <div class="input-group"> WRAPPER,
+# not to the <input>. Locating by id:search returned the div, and calling .clear()
+# on it raised InvalidElementStateException. Always target the <input> itself.
+search_input:
+  - "css:#search input[name='search']"
+  - "css:input[name='search']"
+  - "xpath://input[@placeholder='Search']"
+
+search_button:
+  - "css:#search button"
+  - "xpath://*[@id='search']/span/button"
+  - "xpath://button[@type='button'][.//i[contains(@class,'fa-search')]]"
+
+product_title_on_result:
+  - "css:div.product-thumb h4 a"
+  - "xpath://div[@class='product-thumb']//h4/a"
+
+product_link_by_name_template:
+  # {name} gets substituted at runtime by the page object
+  - "xpath://h4/a[text()='{name}']"
+  - "xpath://div[@class='caption']//a[contains(text(),'{name}')]"
+
+no_results_message:
+  - "css:#content p"
+  - "xpath://*[@id='content']//p[contains(text(),'no products')]"
+
+add_to_cart_button:
+  - "id:button-cart"
+  - "css:button#button-cart"
+  - "xpath://button[@id='button-cart']"
+
+success_alert:
+  - "css:div.alert.alert-success"
+  - "xpath://div[contains(@class,'alert-success')]"

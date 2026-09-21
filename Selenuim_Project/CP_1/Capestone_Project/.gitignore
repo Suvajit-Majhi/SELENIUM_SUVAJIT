@@ -1,0 +1,9 @@
+venv/
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+logs/*.log
+reports/screenshots/*.png
+reports/html_report/*.html
+reports/run_history.db

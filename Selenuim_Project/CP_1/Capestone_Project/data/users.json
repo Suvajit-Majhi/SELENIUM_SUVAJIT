@@ -1,0 +1,12 @@
+{
+  "invalid_user": {
+    "email": "not_a_real_user@example.com",
+    "password": "WrongPassword!"
+  },
+  "new_user_template": {
+    "first_name": "QA",
+    "last_name": "Tester",
+    "telephone": "9876543210",
+    "password": "ValidPass123!"
+  }
+}

@@ -1,0 +1,41 @@
+# Registration form (route=account/register)
+
+firstname_field:
+  - "id:input-firstname"
+  - "name:firstname"
+
+lastname_field:
+  - "id:input-lastname"
+  - "name:lastname"
+
+email_field:
+  - "id:input-email"
+  - "name:email"
+
+telephone_field:
+  - "id:input-telephone"
+  - "name:telephone"
+
+password_field:
+  - "id:input-password"
+  - "name:password"
+
+confirm_password_field:
+  - "id:input-confirm"
+  - "name:confirm"
+
+agree_checkbox:
+  - "css:input[name='agree']"
+  - "xpath://input[@type='checkbox' and @name='agree']"
+
+continue_button:
+  - "css:input[type='submit'][value='Continue']"
+  - "xpath://input[@value='Continue']"
+
+success_heading:
+  - "css:#content h1"
+  - "xpath://div[@id='content']//h1"
+
+register_error_alert:
+  - "css:div.alert.alert-danger"
+  - "css:div.text-danger"

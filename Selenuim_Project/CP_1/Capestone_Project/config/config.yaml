@@ -1,0 +1,39 @@
+# Environment configuration
+# Switch active environment via ENV variable (export ENV=qa) or defaults to "qa"
+
+default_env: qa
+
+environments:
+  qa:
+    base_url: "https://tutorialsninja.com/demo/"
+    browser: "chrome"
+    headless: false
+    implicit_wait: 0   # keep 0: mixing implicit + explicit waits makes fallback locators crawl
+    explicit_wait: 15
+    page_load_timeout: 30
+
+  staging:
+    base_url: "https://tutorialsninja.com/demo/"
+    browser: "chrome"
+    headless: true
+    implicit_wait: 0   # keep 0: mixing implicit + explicit waits makes fallback locators crawl
+    explicit_wait: 15
+    page_load_timeout: 30
+
+  prod:
+    base_url: "https://tutorialsninja.com/demo/"
+    browser: "chrome"
+    headless: true
+    implicit_wait: 0   # keep 0: mixing implicit + explicit waits makes fallback locators crawl
+    explicit_wait: 20
+    page_load_timeout: 40
+
+retry:
+  max_attempts: 3
+  base_delay_seconds: 1
+  backoff_multiplier: 2
+
+reporting:
+  html_report_dir: "reports/html_report"
+  screenshot_dir: "reports/screenshots"
+  run_history_db: "reports/run_history.db"

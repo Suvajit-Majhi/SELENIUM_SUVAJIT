@@ -1,0 +1,42 @@
+# Each UI element maps to an ORDERED LIST of locator strategies.
+# BasePage.find_element() tries them top-to-bottom and stops at the
+# first one that resolves -> this is the "self-healing" mechanism.
+# Format for each entry: "<strategy>:<value>"
+# Supported strategies: id, name, css, xpath, link_text, partial_link_text, class_name, tag_name
+
+email_field:
+  - "id:input-email"
+  - "name:email"
+  - "css:input[placeholder='E-Mail Address']"
+  - "xpath://input[@id='input-email']"
+
+password_field:
+  - "id:input-password"
+  - "name:password"
+  - "css:input[placeholder='Password']"
+  - "xpath://input[@id='input-password']"
+
+login_button:
+  - "xpath://input[@value='Login']"
+  - "css:input.btn.btn-primary[value='Login']"
+  - "xpath://button[text()='Login']"
+
+my_account_dropdown:
+  - "xpath://a[contains(text(),'My Account')]"
+  - "css:a.dropdown-toggle[title='My Account']"
+
+login_link_in_dropdown:
+  - "xpath://a[text()='Login']"
+  - "link_text:Login"
+
+# The header dropdown ALSO contains a (hidden) Logout link, so we prefer the
+# always-visible one in the right-hand account menu.
+logout_link:
+  - "css:#column-right a[href*='account/logout']"
+  - "css:a.list-group-item[href*='account/logout']"
+  - "xpath://a[text()='Logout']"
+  - "link_text:Logout"
+
+login_error_alert:
+  - "css:div.alert.alert-danger"
+  - "xpath://div[contains(@class,'alert-danger')]"
